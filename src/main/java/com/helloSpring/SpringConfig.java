@@ -6,9 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.persistence.EntityManager;
-import javax.sql.DataSource;
-
 /**
  * 자바코드로 직접 스프링 빈 등록하는 방법
  */
@@ -23,23 +20,33 @@ public class SpringConfig {
         this.dataSource = dataSource;
     }*/
 
-    //jpa 를 사용할때는 EntityManager을 이용
+    /*jpa 를 사용할때는 EntityManager을 사용
     private EntityManager em;
 
     public SpringConfig(EntityManager em) {
         this.em = em;
     }
+    */
+
+    /* SpringDataJpa를 사용*/
+    private final MemberRepository memberRepository;
+
+    @Autowired
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     @Bean
     public MemberService memberService(){
-        return new MemberService(memberRepository());
+//        return new MemberService(memberRepository());
+        return new MemberService(memberRepository);
     }
 
-    @Bean
-    public MemberRepository memberRepository(){
+//    @Bean
+//    public MemberRepository memberRepository(){
 //        return new MemoryMemberRepository();
 //        return new JdbcMemberRepository(dataSource);          //Jdbc를 이용
 //        return new JdbcTemplateMemberRepository(dataSource);    //jdbcTemplate을 이용
-        return new JpaMemberRepository(em);
-    }
+//        return new JpaMemberRepository(em);
+//    }
 }
