@@ -1,14 +1,12 @@
 package com.helloSpring;
 
-import com.helloSpring.repository.JdbcMemberRepository;
-import com.helloSpring.repository.JdbcTemplateMemberRepository;
-import com.helloSpring.repository.MemberRepository;
-import com.helloSpring.repository.MemoryMemberRepository;
+import com.helloSpring.repository.*;
 import com.helloSpring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 
 /**
@@ -17,11 +15,19 @@ import javax.sql.DataSource;
 @Configuration
 public class SpringConfig {
 
+    /*Jdbc를 사용할때는 DataSource 사용
     private DataSource dataSource;
 
     @Autowired
     public SpringConfig(DataSource dataSource) {
         this.dataSource = dataSource;
+    }*/
+
+    //jpa 를 사용할때는 EntityManager을 이용
+    private EntityManager em;
+
+    public SpringConfig(EntityManager em) {
+        this.em = em;
     }
 
     @Bean
@@ -33,6 +39,7 @@ public class SpringConfig {
     public MemberRepository memberRepository(){
 //        return new MemoryMemberRepository();
 //        return new JdbcMemberRepository(dataSource);          //Jdbc를 이용
-        return new JdbcTemplateMemberRepository(dataSource);    //jdbcTemplate을 이용
+//        return new JdbcTemplateMemberRepository(dataSource);    //jdbcTemplate을 이용
+        return new JpaMemberRepository(em);
     }
 }
