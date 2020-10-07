@@ -1,13 +1,10 @@
-package com.helloSpring.service;
+package com.hellospring.service;
 
-import com.helloSpring.domain.Member;
-import com.helloSpring.repository.MemoryMemberRepository;
-import org.assertj.core.api.Assertions;
+import com.hellospring.domain.Member;
+import com.hellospring.repository.MemoryMemberRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;

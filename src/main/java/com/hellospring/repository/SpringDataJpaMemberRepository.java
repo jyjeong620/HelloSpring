@@ -1,8 +1,7 @@
-package com.helloSpring.repository;
+package com.hellospring.repository;
 
-import com.helloSpring.domain.Member;
+import com.hellospring.domain.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 

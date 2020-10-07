@@ -1,4 +1,4 @@
-package com.helloSpring.controller;
+package com.hellospring.controller;
 
 public class MemberForm {
 

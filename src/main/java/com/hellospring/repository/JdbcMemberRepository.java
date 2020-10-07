@@ -1,7 +1,6 @@
-package com.helloSpring.repository;
+package com.hellospring.repository;
 
-import com.helloSpring.domain.Member;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.hellospring.domain.Member;
 import org.springframework.jdbc.datasource.DataSourceUtils;
 
 import javax.sql.DataSource;
