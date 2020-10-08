@@ -15,7 +15,7 @@ public class MemberService {
     private final MemberRepository memberRepository;// = new MemoryMemberRepository();
 
     //이것이 DI
-    @Autowired
+//    @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
